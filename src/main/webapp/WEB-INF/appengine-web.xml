@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+    <application>nora-machine-translation</application>
+    <!-- Nora changed the following line on 1/18/15 -->
+    <!-- <version>${appengine.app.version}</version> I replaced this line with the one below-->
+    <version>1</version>
+    <threadsafe>true</threadsafe>
+    
+    <system-properties>
+        <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+    </system-properties>
+
+    <resource-files>
+    	<include path="/WEB-INF/ResourceFiles/*" />
+    </resource-files>
+</appengine-web-app>
