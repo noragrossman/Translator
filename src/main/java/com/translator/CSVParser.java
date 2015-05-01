@@ -22,10 +22,15 @@ import com.google.appengine.api.datastore.KeyFactory;
 */
 
 public class CSVParser {
+	private BufferedReader br1;
+	private BufferedReader br2;
+	private BufferedReader br3;
 
 	public CSVParser() {
 		System.out.println("created CSV parser");
-		
+		this.br1 = read("WEB-INF/ResourceFiles/english.csv");
+		this.br2 = read("WEB-INF/ResourceFiles/spanish.csv");
+		this.br3 = read("WEB-INF/ResourceFiles/translations.csv");
 	}
 
 	public int parseAll() {
@@ -69,6 +74,18 @@ public class CSVParser {
 			System.out.println("Unsupported encoding exception: " + uee);
 		}
 		return in;
+	}
+
+	public int parseEnglishCsv() {
+		return parseEnglishCsv(this.br1);
+	}
+
+	public int parseSpanishCsv() {
+		return parseSpanishCsv(this.br2);
+	}
+
+	public int parseTranslationsCsv() {
+		return parseTranslationsCsv(this.br3);
 	}
 
 	private static int parseEnglishCsv(BufferedReader in) {

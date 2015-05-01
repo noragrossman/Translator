@@ -1,31 +1,43 @@
 package com.translator;
 
-import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
-import com.google.appengine.api.datastore.Entity;
-import com.google.appengine.api.datastore.EntityNotFoundException;
-import com.google.appengine.api.datastore.FetchOptions;
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
-import com.google.appengine.api.datastore.Query;
-import com.google.appengine.api.datastore.Transaction;
 
 import java.io.IOException;
-import java.util.*;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.translator.partsOfSpeech.*;
+import com.google.appengine.api.taskqueue.Queue;
+import com.google.appengine.api.taskqueue.QueueFactory;
+import com.google.appengine.api.taskqueue.TaskOptions;
+
 
 public class PopulateDatastoreServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest req, HttpServletResponse resp)
       throws IOException {
-        CSVParser csvParser = new CSVParser();
-        int numEntriesPut = csvParser.parseAll();
 
-        resp.sendRedirect("/translateHome.jsp?num=" + numEntriesPut);
+      	String mode = req.getParameter("mode");
+
+      	// Add the task to the default queue.
+        Queue queue = QueueFactory.getDefaultQueue();
+
+        if (mode.compareTo("spanish") == 0) {
+        	queue.add(TaskOptions.Builder.withUrl("/spanishWorker"));
+        	System.out.println("spanish task has been added to queue");
+        } else if (mode.compareTo("translation") == 0) {
+        	queue.add(TaskOptions.Builder.withUrl("/transWorker"));
+        	System.out.println("translations task has been added to queue");
+        } else if (mode.compareTo("english") == 0) {
+          queue.add(TaskOptions.Builder.withUrl("/englishWorker"));
+          System.out.println("english task has been added to queue");
+        } else {
+        	System.out.println("bad mode");
+        }
+        
+
+        resp.sendRedirect("/");
+
+        
   }
 }

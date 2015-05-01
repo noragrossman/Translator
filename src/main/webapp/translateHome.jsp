@@ -23,7 +23,7 @@
 <body>
 	
 <h1>Welcome!</h1>
-
+<a href="populate.jsp">Click here to go to management console</a>
 <%
 	DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
@@ -108,7 +108,6 @@
         // Database has not been populated, we need to populate it
         %>
             <p>Unfortunately, the database hasn't been populated yet :(</p>
-            <a href="populate.jsp">Click here to go to management console</a>
         <%
     }
     %>

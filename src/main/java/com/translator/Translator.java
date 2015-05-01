@@ -4,10 +4,10 @@ import java.io.*;
 import java.util.*;
 import java.util.regex.*;
 
-import com.translator.partsOfSpeech.*;
+//import com.translator.partsOfSpeech.*;
 
 public class Translator {
-	public static HashMap<String, ArrayList<Word>> english = new HashMap<String, ArrayList<Word>>();
+	/*public static HashMap<String, ArrayList<Word>> english = new HashMap<String, ArrayList<Word>>();
 	public static HashMap<String, ArrayList<Word>> spanish = new HashMap<String, ArrayList<Word>>();
 
 	public Translator() {
@@ -47,4 +47,5 @@ public class Translator {
 		System.out.println("Returning translation...");
 		return translations;
 	}
+	*/
 }

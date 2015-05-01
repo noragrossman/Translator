@@ -108,6 +108,7 @@
                 <artifactId>appengine-maven-plugin</artifactId>
                 <version>1.9.17</version>
                 <configuration>
+                    <port>8888</port>
                     <enableJarClasses>false</enableJarClasses>
                     <!-- Comment in the below snippet to bind to all IPs instead of just localhost -->
                     <!-- address>0.0.0.0</address>

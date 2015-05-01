@@ -13,13 +13,20 @@
         <servlet-class>com.translator.PopulateDatastoreServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>conjugate</servlet-name>
-        <servlet-class>com.translator.ConjugatorServlet</servlet-class>
+        <servlet-name>spanishWorker</servlet-name>
+        <servlet-class>com.translator.SpanishWorker</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>mapreduce</servlet-name>
-        <servlet-class>com.translator.MapReduceServlet</servlet-class>
+        <servlet-name>transWorker</servlet-name>
+        <servlet-class>com.translator.TranslationWorker</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>englishWorker</servlet-name>
+        <servlet-class>com.translator.EnglishWorker</servlet-class>
+    </servlet>
+
+
+
     <servlet-mapping>
         <servlet-name>translate</servlet-name>
         <url-pattern>/translate</url-pattern>
@@ -29,37 +36,18 @@
         <url-pattern>/populate</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>conjugate</servlet-name>
-        <url-pattern>/conjugate</url-pattern>
+        <servlet-name>spanishWorker</servlet-name>
+        <url-pattern>/spanishWorker</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>mapreduce</servlet-name>
-        <url-pattern>/mapreduce</url-pattern>
+        <servlet-name>transWorker</servlet-name>
+        <url-pattern>/transWorker</url-pattern>
     </servlet-mapping>
-    
-    <!-- Added by Nora on April 11 -->
-    <servlet>
-      <servlet-name>mapreduce</servlet-name>
-      <servlet-class>
-        com.google.appengine.tools.mapreduce.MapReduceServlet
-      </servlet-class>
-    </servlet>
     <servlet-mapping>
-      <servlet-name>mapreduce</servlet-name>
-      <url-pattern>/mapreduce/*</url-pattern>
+        <servlet-name>englishWorker</servlet-name>
+        <url-pattern>/englishWorker</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-      <servlet-name>pipeline</servlet-name>
-      <servlet-class>
-        com.google.appengine.tools.pipeline.impl.servlets.PipelineServlet
-      </servlet-class>
-    </servlet>
-    <servlet-mapping>
-      <servlet-name>pipeline</servlet-name>
-      <url-pattern>/_ah/pipeline/*</url-pattern>
-    </servlet-mapping>
-    <!-- end here -->
     
     <welcome-file-list>
         <welcome-file>translateHome.jsp</welcome-file>

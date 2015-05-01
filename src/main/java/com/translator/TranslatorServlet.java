@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.translator.partsOfSpeech.*;
+//import com.translator.partsOfSpeech.*;
 
 public class TranslatorServlet extends HttpServlet {
   @Override
