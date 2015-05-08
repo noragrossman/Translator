@@ -1,4 +1,17 @@
-<!-- Indices written at Fri, 1 May 2015 11:48:06 EDT -->
+<!-- Indices written at Fri, 8 May 2015 12:34:12 EDT -->
 
-<datastore-indexes/>
+<datastore-indexes>
 
+    <!-- Used 2 times in query history -->
+    <datastore-index kind="Translation" ancestor="false" source="auto">
+        <property name="english" direction="asc"/>
+        <property name="partOfSpeech" direction="asc"/>
+    </datastore-index>
+
+    <!-- Used 3 times in query history -->
+    <datastore-index kind="Translation" ancestor="false" source="auto">
+        <property name="spanish" direction="asc"/>
+        <property name="partOfSpeech" direction="asc"/>
+    </datastore-index>
+
+</datastore-indexes>

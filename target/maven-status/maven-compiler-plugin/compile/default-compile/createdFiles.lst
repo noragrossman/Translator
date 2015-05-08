@@ -1,7 +1,12 @@
 com/translator/TranslatorServlet.class
-com/translator/Translator.class
+com/translator/SpanConjWorker.class
+com/translator/ConjugationServlet.class
 com/translator/EnglishWorker.class
-com/translator/TranslationWorker.class
 com/translator/SpanishWorker.class
+com/translator/Translator.class
+com/translator/EngConjWorker.class
+com/translator/Conjugator.class
+com/translator/TranslationWorker.class
 com/translator/PopulateDatastoreServlet.class
 com/translator/CSVParser.class
+com/translator/DictionaryServlet.class

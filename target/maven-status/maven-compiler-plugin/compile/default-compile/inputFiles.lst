@@ -1,7 +1,12 @@
 /Users/nmgrossman/translator/src/main/java/com/translator/Translator.java
+/Users/nmgrossman/translator/src/main/java/com/translator/Conjugator.java
 /Users/nmgrossman/translator/src/main/java/com/translator/SpanishWorker.java
 /Users/nmgrossman/translator/src/main/java/com/translator/EnglishWorker.java
 /Users/nmgrossman/translator/src/main/java/com/translator/TranslatorServlet.java
+/Users/nmgrossman/translator/src/main/java/com/translator/EngConjWorker.java
 /Users/nmgrossman/translator/src/main/java/com/translator/CSVParser.java
+/Users/nmgrossman/translator/src/main/java/com/translator/DictionaryServlet.java
 /Users/nmgrossman/translator/src/main/java/com/translator/TranslationWorker.java
+/Users/nmgrossman/translator/src/main/java/com/translator/ConjugationServlet.java
 /Users/nmgrossman/translator/src/main/java/com/translator/PopulateDatastoreServlet.java
+/Users/nmgrossman/translator/src/main/java/com/translator/SpanConjWorker.java

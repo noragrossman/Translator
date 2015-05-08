@@ -1,3 +1,5 @@
+<!-- Author Nora Grossman, 2015 -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +11,9 @@
     	
     <h1>Datastore Manager</h1>
 
-    <p>Unfortunately, the database hasn't been populated yet :(</p>
-    <h3>Let's try to populate it...</h3>
-    <p>Enter <b>"spanish"</b>, <b>"english"</b> or <b>"translation"</b> in the box below depending on which table you would like to populate (all lowercase)</p>
+    <h4>Let's try to populate the datastore...</h4>
+    <p>Enter <b>"spanish"</b>, <b>"english"</b>, <b>"translation"</b>, <b>"spanishIrrConjs"</b>, or 
+        <b>"englishIrrConjs"</b> in the box below depending on which table you would like to populate (all lowercase)</p>
     <form action="/populate" method="post">
         <input type="text" name="mode" />
         <input type="submit" value="Go!" />

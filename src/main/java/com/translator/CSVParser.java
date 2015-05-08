@@ -1,6 +1,8 @@
-// Upload CSV Servlet //
+package com.translator;
 
- package com.translator;
+ /*
+  *	@author Nora Grossman
+  */
 
 import java.util.*;
 import java.io.*;
@@ -19,18 +21,27 @@ import com.google.appengine.api.datastore.KeyFactory;
 		> english.csv
 		> spanish.csv
 		> translations.csv
+		> spanishIrrVerbConjs.csv
+		> spanishIrrVerbConjsAux.csv
+		> englishIrrVerbConjs.csv
 */
 
 public class CSVParser {
 	private BufferedReader br1;
 	private BufferedReader br2;
 	private BufferedReader br3;
+	private BufferedReader br4;
+	private BufferedReader br5;
+	private BufferedReader br6;
 
 	public CSVParser() {
 		System.out.println("created CSV parser");
 		this.br1 = read("WEB-INF/ResourceFiles/english.csv");
 		this.br2 = read("WEB-INF/ResourceFiles/spanish.csv");
 		this.br3 = read("WEB-INF/ResourceFiles/translations.csv");
+		this.br4 = read("WEB-INF/ResourceFiles/spanishIrrVerbConjs.csv");
+		this.br5 = read("WEB-INF/ResourceFiles/spanishIrrVerbConjsAux.csv");
+		this.br6 = read("WEB-INF/ResourceFiles/engIrrVerbConjs.csv");
 	}
 
 	public int parseAll() {
@@ -86,6 +97,94 @@ public class CSVParser {
 
 	public int parseTranslationsCsv() {
 		return parseTranslationsCsv(this.br3);
+	}
+
+	public int parseSpanishIrregsCsv() {
+		return parseSpanishIrregs(this.br4);
+	}
+
+	public int parseSpanishIrregsCsv2() {
+		return parseSpanishIrregs(this.br5);
+	}
+
+	public int parseEnglishIrregs() {
+		return parseEnglishIrregs(this.br6);
+	}
+
+	private static int parseEnglishIrregs(BufferedReader in) {
+		System.out.println("Parsing English irregular verb conjugations CSV");
+		int entitiesPut = 0;
+		String entityName = "EngConj";
+		try {
+			String line = in.readLine();
+			while (line != null) {
+				String[] values = line.split(",");
+				String lemma = values[0];
+				String tense = values[1];
+				String person = values[2];
+				String conj = values[3];
+
+				Entity engConj = new Entity(entityName);
+				engConj.setProperty("lemma", lemma);
+				engConj.setProperty("tense", tense);
+				engConj.setProperty("person", person);
+				engConj.setProperty("conj", conj);
+
+				DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+				datastore.put(engConj);
+				entitiesPut++;
+
+				line = in.readLine();
+			}
+
+		} catch (IOException e) {
+			System.err.println(e);
+		} finally {
+			System.out.println(entitiesPut + " English irr verb entities put");
+			return entitiesPut;
+		}
+	}
+
+	private static int parseSpanishIrregs(BufferedReader in) {
+		System.out.println("Parsing Spanish irregular verb conjugations CSV");
+		int entitiesPut = 0;
+		String entityName = "SpanConj";
+		try {
+			String line = in.readLine();
+			while (line != null) {
+				// Split by commas
+				String[] values = line.split(",");
+
+				String conj = values[0];
+				String lemma = values[1];
+				String mode = values[2];
+				String tense = values[3];
+				String person = values[4];
+				String plurality = values[5];
+				String gender = values[6];
+
+				// Create entity
+				Entity spanConj = new Entity(entityName);
+				spanConj.setProperty("conj", conj);
+				spanConj.setProperty("mode", mode);
+				spanConj.setProperty("lemma", lemma);
+				spanConj.setProperty("tense", tense);
+				spanConj.setProperty("person", person);
+				spanConj.setProperty("plurality", plurality);
+				spanConj.setProperty("gender", gender);
+
+				DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+				datastore.put(spanConj);
+				entitiesPut++;
+
+				line = in.readLine();
+			}
+		} catch (IOException e) {
+			System.err.println(e);
+		} finally {
+			System.out.println(entitiesPut + " spanish conjugations put");
+			return entitiesPut;
+		}
 	}
 
 	private static int parseEnglishCsv(BufferedReader in) {
@@ -207,44 +306,4 @@ public class CSVParser {
 			return entitiesPut;
 		}
 	}
-
-	/*public int parseEnglish(int start, int stop) {
-		// Read in English file
-		int numPut = 0;
-		BufferedReader br1 = read("WEB-INF/ResourceFiles/english.csv");
-		if (br1 != null) {
-			numPut = parseEnglishCsv(br1, start, stop);
-		} else {
-			System.out.println("Problem reading English CSV");
-		}
-
-		return numPut;
-	}
-
-	public int parseSpanish(int start, int stop) {
-		// Read in Spanish file
-		int numPut = 0;
-		BufferedReader br2 = read("WEB-INF/ResourceFiles/spanish.csv");
-		if (br2 != null) {
-			numPut = parseSpanishCsv(br2, start, stop);
-		} else {
-			System.out.println("Problem reading Spanish CSV");
-		}
-
-		return numPut;
-	}
-
-	public int parseTrans(int start, int stop) {
-		// Read in Translations file
-		int numPut = 0;
-		BufferedReader br3 = read("WEB-INF/ResourceFiles/translations.csv");
-		if (br3 != null) {
-			numPut = parseTranslationsCsv(br3, start, stop);
-		} else {
-			System.out.println("Problem reading Translations CSV");
-		}
-
-		return numPut;
-
-	} */
 }

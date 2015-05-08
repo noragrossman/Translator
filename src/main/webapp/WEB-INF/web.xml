@@ -13,6 +13,14 @@
         <servlet-class>com.translator.PopulateDatastoreServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>conjugate</servlet-name>
+        <servlet-class>com.translator.ConjugationServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>dictionary</servlet-name>
+        <servlet-class>com.translator.DictionaryServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>spanishWorker</servlet-name>
         <servlet-class>com.translator.SpanishWorker</servlet-class>
     </servlet>
@@ -24,6 +32,15 @@
         <servlet-name>englishWorker</servlet-name>
         <servlet-class>com.translator.EnglishWorker</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>spanConjWorker</servlet-name>
+        <servlet-class>com.translator.SpanConjWorker</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>engConjWorker</servlet-name>
+        <servlet-class>com.translator.EngConjWorker</servlet-class>
+    </servlet>
+
 
 
 
@@ -34,6 +51,14 @@
     <servlet-mapping>
         <servlet-name>populate</servlet-name>
         <url-pattern>/populate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>conjugate</servlet-name>
+        <url-pattern>/conjugate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>dictionary</servlet-name>
+        <url-pattern>/dictionary</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>spanishWorker</servlet-name>
@@ -47,9 +72,17 @@
         <servlet-name>englishWorker</servlet-name>
         <url-pattern>/englishWorker</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>spanConjWorker</servlet-name>
+        <url-pattern>/spanConjWorker</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>engConjWorker</servlet-name>
+        <url-pattern>/engConjWorker</url-pattern>
+    </servlet-mapping>
 
     
     <welcome-file-list>
-        <welcome-file>translateHome.jsp</welcome-file>
+        <welcome-file>dictionary.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

@@ -1,5 +1,8 @@
 package com.translator;
 
+ /*
+  * @author Nora Grossman
+  */
 
 import java.io.IOException;
 
@@ -31,6 +34,12 @@ public class PopulateDatastoreServlet extends HttpServlet {
         } else if (mode.compareTo("english") == 0) {
           queue.add(TaskOptions.Builder.withUrl("/englishWorker"));
           System.out.println("english task has been added to queue");
+        } else if (mode.compareTo("spanishIrrConjs") == 0) {
+          queue.add(TaskOptions.Builder.withUrl("/spanConjWorker"));
+          System.out.println("spanish conjugations task has been added to queue");
+        } else if (mode.compareTo("englishIrrConjs") == 0) {
+          queue.add(TaskOptions.Builder.withUrl("/engConjWorker"));
+          System.out.println("english conjugations task has been added to queue");
         } else {
         	System.out.println("bad mode");
         }

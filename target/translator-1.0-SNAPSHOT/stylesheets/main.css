@@ -1,4 +1,109 @@
+/* Author Nora Grossman, 2015 */
+
 body {
-    font-family: Verdana, Helvetica, sans-serif;
-    padding: 30px;
+    font-family: "Courier New", "Courier";
+    background-image: url("OldSoundSystem.jpg");
+    background-size: cover;
+    margin: 0;
 }
+
+.title {
+	color: white;
+	background-color: black;
+	padding: 30px;
+	font-weight: 400;
+	font-size: 30px;
+	max-width: 600px;
+	margin-top: 20px;
+}
+
+.navigation {
+	color: white;
+	background-color: black;
+	padding: 1px;
+	font-size: 15px;
+	max-width: 550px;
+}
+.navigation ul {
+	list-style: none;
+}
+
+.navigation li {
+	display: inline;
+	padding-right: 30px;
+}
+
+.navigation a {
+	text-decoration: none;
+	color: white;
+}
+
+.navigation a:hover {
+	font-weight: bold;
+}
+
+.main {
+	color: black;
+	background-color: white;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 700px;
+	margin-top: 50px;
+	padding: 20px;
+	opacity: 0.87;
+	overflow: hidden;
+}
+
+.heading {
+	font-size: 24px;
+}
+
+.button {
+	padding: 5px 20px 5px 20px;
+	border: 1px solid rgb(124, 30, 44);
+	background-color: rgb(220, 150, 155);
+	font-family: "Courier New", "Courier";
+	font-size: 14px;
+	font-weight: 800;
+}
+
+.textbox {
+	padding: 5px 20px 5px 20px;
+}
+
+.centered {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#about {
+	max-height: 320px;
+	overflow: scroll;
+}
+
+.featured {
+	font-size: 30px;
+	font-weight: 900;
+	margin-bottom: 5px;
+}
+
+.toggle {
+	text-decoration: none;
+	border: 1px solid rgb(124, 30, 44);
+	padding: 7px;
+	font-size: 12px;
+	float: right;
+	font-weight: 700;
+	color: black;
+}
+
+td {
+	padding: 5px;
+}
+
+/*
+
+TODO:
+- MM.vaux file needs to be turned into CSV and uploded to datastore
+
+*/
